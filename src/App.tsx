@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { Route, Routes } from 'react-router-dom';
+import { Loadable } from 'react-loadable';
+import Header from './components/Header'
+
+import './scss/app.scss'
+import NotFound from './pages/NotFound';
+import { FC, Suspense, lazy } from 'react';
+// import Cart from './pages/Cart';
+// import Cart from './pages/Cart';
+
+
+// const Cart = Loadable({
+//   loader: () => import('./pages/Cart'),
+//   loading : () => <div>тут будет спинер</div>
+// })
+
+ const Cart = lazy(() => import("./pages/Cart"))
+ const Main = lazy(() => import("./pages/Main"))
+//  const NotFound = 
+
+const App : FC = () => {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper">
+        <Header />
+        <Routes>
+          <Route path="/" element={
+            <Suspense fallback="sdsdsd">
+              <Main />
+            </Suspense>
+          }/>
+          
+          <Route path="cart" element={
+            <Suspense fallback=" dsds">
+              <Cart/>
+            </Suspense>
+          }/>
+          
+          <Route path="*" element={<NotFound/>}/>
+        </Routes>
+      </div>
     </div>
   );
 }
