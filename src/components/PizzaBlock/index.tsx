@@ -1,10 +1,10 @@
 import { FC, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItemById } from "../../storoges/cart/selector";
-import { addItem } from "../../storoges/cart/slice";
+import { selectCartItemById } from "../../storages/cart/selector";
+import { addItem } from "../../storages/cart/slice";
 
 type PizzaBlockType = {
-    img: string
+    imageUrl: string
     title: string
     types: number[]
     sizes: number[]
@@ -13,7 +13,7 @@ type PizzaBlockType = {
 }
 
 
-const PizzaBlock: FC<PizzaBlockType> = ({ img, title, types, sizes, price, id }) => {
+const PizzaBlock: FC<PizzaBlockType> = ({ imageUrl, title, types, sizes, price, id }) => {
 
     const [type, setType] = useState<number>(5)
     const [size, setSize] = useState<number>(5)
@@ -27,7 +27,6 @@ const PizzaBlock: FC<PizzaBlockType> = ({ img, title, types, sizes, price, id })
     const onClickAdd = () => {
 
         const count = 1
-        const imageUrl = img
         const item = {
             id,
             title,
@@ -43,15 +42,13 @@ const PizzaBlock: FC<PizzaBlockType> = ({ img, title, types, sizes, price, id })
     const dough = ["традиционное", "тонкое"]
 
     const addCount = cartItem ? cartItem.count : 0
-    //todo 
-    // добавить стейты, отображать только то, что есть
-    // добавить key в масивы
+    
 
     return (
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
-                src={img}
+                src={imageUrl}
                 alt="Pizza"
             />
             <h4 className="pizza-block__title">{title}</h4>

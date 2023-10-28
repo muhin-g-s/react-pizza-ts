@@ -1,33 +1,30 @@
-//import items from './assets/db.json'
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback} from 'react';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Sceleton from '../components/PizzaBlock/Sceleton';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import Pagination from '../components/Pagination';
-import { selectPizzaData } from '../storoges/pizza/selector';
-import getPizza from '../storoges/pizza/fetch';
-import { setCategoryId, setCurrentPage } from '../storoges/filter/slice';
-import { selectFilter } from '../storoges/filter/selector';
-import { useAppDispatcher } from '../storoges/store';
+import { selectPizzaData } from '../storages/pizza/selector';
+import getPizza from '../storages/pizza/fetch';
+import { setCategoryId, setCurrentPage } from '../storages/filter/slice';
+import { selectFilter } from '../storages/filter/selector';
+import { useAppDispatcher } from '../storages/store';
 
-const Main : FC = () => {
+const Main: FC = () => {
 
     const { items, status } = useSelector(selectPizzaData)
     const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
 
     const dispatch = useAppDispatcher()
 
-    const [isLoading, setIsLoading] = useState(false)
-
-    const onChangePage = (e : number) => {
+    const onChangePage = (e: number) => {
         dispatch(setCurrentPage(e))
     }
 
-    const onChangeCategory = useCallback((idx : number) => {
+    const onChangeCategory = useCallback((idx: number) => {
         dispatch(setCategoryId(idx))
     }, [])
 
@@ -63,14 +60,14 @@ const Main : FC = () => {
                 </div>
                 <h2 className="content__title">Все пиццы</h2>
                 <div className="content__items">
-                    {/* {isLoading
-                        ? [...Array(6)].map((_, index) => (<Sceleton key={index} />))
-                        : item.map((e, index) => (
-                            <PizzaBlock key={index} img={e.imageUrl} title={e.title} types={e.types} sizes={e.sizes} price={e.price} />
-                        ))} */}
-
-                    {items.map((e : any, index : number) => (
-                        <PizzaBlock key={index} img={e.imageUrl} title={e.title} types={e.types} sizes={e.sizes} price={e.price} id={e.id}/>
+                    {status === 'error' ? (
+                        <div className="content__error-info">
+                            <h2>Произошла ошибка 😕</h2>
+                            <p>К сожалению, не удалось получить питсы. Попробуйте повторить попытку позже.</p>
+                        </div>) : (
+                        status === 'loading' ?
+                            [...Array(6)].map((_, index) => (<Sceleton key={index} />)) : (
+                            items.map((e: any) => (<PizzaBlock key={e.id} {...e} />))
                     ))}
                 </div>
                 <Pagination currentPage={currentPage} onChangePage={onChangePage} />

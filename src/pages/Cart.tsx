@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
-import { selectCart } from "../storoges/cart/selector"
+import { selectCart } from "../storages/cart/selector"
 import CartItem from "../components/CratItem/CartItem"
-import { clearItem } from "../storoges/cart/slice"
+import { clearItem } from "../storages/cart/slice"
 import EmptyCartItem from "../components/CratItem/EmptyCartItem"
 import { FC } from "react"
 

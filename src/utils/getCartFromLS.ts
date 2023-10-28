@@ -1,4 +1,4 @@
-import { CartItemType } from "../storoges/cart/type"
+import { CartItemType } from "../storages/cart/type"
 import { calcTotalPrice } from "./calcTotalPrice"
 
 
