@@ -1,3 +1,4 @@
+import React from "react"
 import { useRef, useState, useEffect, memo, FC } from "react"
 import { useDispatch } from "react-redux"
 import { setSort } from "../storages/filter/slice";
@@ -25,7 +26,8 @@ export const sortList: SortItem[] = [
     { name: 'алфавиту (ASC)', sortProperty: SortPropertyEnum.TITLE_ASC },
 ];
 
-const Sort: FC<SortPopupProps> = memo(({ value }) => {
+// eslint-disable-next-line react/display-name
+const Sort: FC<SortPopupProps> = memo(({ value } : SortPopupProps) => {
     const dispatch = useDispatch()
     const sortRef = useRef<HTMLDivElement>(null)
     const [activeSortPopup, onPopup] = useState(false)

@@ -1,0 +1,16 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "no-unused-vars": "warn"
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "react-app"
+    ]
+}

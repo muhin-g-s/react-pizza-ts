@@ -1,5 +1,5 @@
+import React from "react"
 import { ChangeEvent, FC, useCallback, useRef, useState } from 'react'
-
 import styles from './Search.module.scss'
 import { useDispatch } from 'react-redux'
 import { setSearchValue } from '../../storages/filter/slice'
@@ -13,6 +13,7 @@ const Search : FC = () => {
     const inputRef = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState('')
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const updateSerchValue = useCallback(
         debounce((str : string) => {
             dispatcher(setSearchValue(str))

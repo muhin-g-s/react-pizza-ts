@@ -1,6 +1,6 @@
-
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Loadable } from 'react-loadable';
+//import { Loadable } from 'react-loadable';
 import Header from './components/Header'
 
 import './scss/app.scss'

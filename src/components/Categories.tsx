@@ -1,3 +1,4 @@
+import React from "react"
 import { FC, memo } from "react"
 
 type CategoryProps = {
@@ -5,7 +6,8 @@ type CategoryProps = {
     onChangeCategory : (idx : number) => void
 }
 
-const Categories : FC<CategoryProps> = memo(({value, onChangeCategory}) => {
+// eslint-disable-next-line react/display-name
+const Categories : FC<CategoryProps> = memo(({value, onChangeCategory} : CategoryProps) => {
 
     const categories = ["Все", 
                         "Мясные", 
