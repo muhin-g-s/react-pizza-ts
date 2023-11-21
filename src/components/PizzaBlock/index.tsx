@@ -1,7 +1,7 @@
 import React from "react"
 import { FC, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItemById } from "../../storages/cart/selector";
+import { selectCart, selectCartItemById } from "../../storages/cart/selector";
 import { addItem } from "../../storages/cart/slice";
 
 type PizzaBlockType = {
@@ -24,7 +24,7 @@ const PizzaBlock: FC<PizzaBlockType> = ({ imageUrl, title, types, sizes, price, 
 
     const onClickType = (e: number) => e === type ? setType(5) : setType(e)
     const onClickSize = (e: number) => e === size ? setSize(5) : setSize(e)
-
+    const {items} = useSelector(selectCart)
     const onClickAdd = () => {
 
         const count = 1
@@ -37,7 +37,9 @@ const PizzaBlock: FC<PizzaBlockType> = ({ imageUrl, title, types, sizes, price, 
             size,
             count
         }
+        console.log(imageUrl)
         dispatcher(addItem(item))
+        console.log(items)
     }
 
     const dough = ["традиционное", "тонкое"]

@@ -8,7 +8,7 @@ type CartItemProps = {
     id : string
     title : string
     price : number
-    img : string
+    imageUrl : string
     currentType : number
     currentSize : number
     count : number
@@ -19,7 +19,7 @@ const CartItem : FC<CartItemProps> = ({
     id,
     title,
     price,
-    img,
+    imageUrl,
     currentType,
     currentSize,
     count}) => {
@@ -42,12 +42,14 @@ const CartItem : FC<CartItemProps> = ({
             dispatcher(removeItem(id))
     }
 
+    console.log(imageUrl)
+
     return (
         <div className="cart__item">
             <div className="cart__item-img">
                 <img
                     className="pizza-block__image"
-                    src={img}
+                    src={imageUrl}
                     alt="Pizza"
                 />
             </div>

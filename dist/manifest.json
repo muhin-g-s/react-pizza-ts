@@ -1,8 +1,0 @@
-{
-	"short_name": "Pizza PWA",
-	"name": "React pizza PWA Example",
-	"start_url": ".",
-	"display": "standalone",
-	"theme_color": "#e50914",
-	"background_color": "#221f1f"
-}
