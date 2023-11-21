@@ -43,8 +43,8 @@ const Cart : FC = () => {
                 <span> Сумма заказа: <b>{totalPrice}</b> </span>
               </div>
               <div className="cart__bottom-buttons">
-                <Link to="/react-pizza-ts" className="button button--outline button--add go-back-btn">
-                <span>Вернуться назадdddddd</span>
+                <Link to="/" className="button button--outline button--add go-back-btn">
+                <span>Вернуться назад</span>
                 </Link>
                 <div className="button pay-btn">
                   <span>Оплатить сейчас</span>

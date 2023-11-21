@@ -25,13 +25,13 @@ const App : FC = () => {
       <div className="wrapper">
         <Header />
         <Routes>
-          <Route path="/react-pizza-ts" element={
+          <Route path="/" element={
             <Suspense fallback="sdsdsd">
               <Main />
             </Suspense>
           }/>
           
-          <Route path="react-pizza-ts/cart" element={
+          <Route path="/cart" element={
             <Suspense fallback=" dsds">
               <Cart/>
             </Suspense>
