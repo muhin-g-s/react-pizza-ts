@@ -17,7 +17,6 @@ import { FC, Suspense, lazy } from 'react';
 
  const Cart = lazy(() => import("./pages/Cart"))
  const Main = lazy(() => import("./pages/Main"))
-//  const NotFound = 
 
 const App : FC = () => {
 
@@ -26,13 +25,13 @@ const App : FC = () => {
       <div className="wrapper">
         <Header />
         <Routes>
-          <Route path="/" element={
+          <Route path="/react-pizza-ts" element={
             <Suspense fallback="sdsdsd">
               <Main />
             </Suspense>
           }/>
           
-          <Route path="cart" element={
+          <Route path="react-pizza-ts/cart" element={
             <Suspense fallback=" dsds">
               <Cart/>
             </Suspense>

@@ -90,10 +90,10 @@ registerRoute(
 );
 
 // @see https://developers.google.com/web/tools/workbox/guides/common-recipes#cache_css_and_javascript_files
-registerRoute(
-  ({request}) => request.destination === 'script' ||
-    request.destination === 'style',
-  new StaleWhileRevalidate({
-    cacheName: 'static-resources',
-  })
-);
+// registerRoute(
+//   ({request}) => request.destination === 'script' ||
+//     request.destination === 'style',
+//   new StaleWhileRevalidate({
+//     cacheName: 'static-resources',
+//   })
+// );

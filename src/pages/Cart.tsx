@@ -1,9 +1,11 @@
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectCart } from "../storages/cart/selector"
 import CartItem from "../components/CratItem/CartItem"
 import { clearItem } from "../storages/cart/slice"
 import EmptyCartItem from "../components/CratItem/EmptyCartItem"
 import { FC } from "react"
+import { Link } from "react-router-dom"
 
 const Cart : FC = () => {
 
@@ -41,9 +43,9 @@ const Cart : FC = () => {
                 <span> Сумма заказа: <b>{totalPrice}</b> </span>
               </div>
               <div className="cart__bottom-buttons">
-                <a href="/" className="button button--outline button--add go-back-btn">
-                  <span>Вернуться назад</span>
-                </a>
+                <Link to="/react-pizza-ts" className="button button--outline button--add go-back-btn">
+                <span>Вернуться назадdddddd</span>
+                </Link>
                 <div className="button pay-btn">
                   <span>Оплатить сейчас</span>
                 </div>

@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "Fork react-pizza-ts with offline work",
   "main": "index.js",
+  "homepage": "https://muhin-g-s.github.io/react-pizza-ts/",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack",
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
-    "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json"
+    "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
+    "deploy" : "npm run build",
+    "predeploy" : "gh-pages -d dist"
   },
   "author": "Muhin-G-S muhin.g.s.00@gmail.com",
   "license": "MIT",
@@ -40,6 +43,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^6.1.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "node-sass": "^9.0.0",

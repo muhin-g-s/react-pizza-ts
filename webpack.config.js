@@ -63,10 +63,10 @@ const plugins = () => {
 
     if (isProd) {
         // base.push(new BundleAnalyzerPlugin())
-        base.push(new InjectManifest({
-            swSrc,
-            swDest: 'sw.js',
-        }));
+        // base.push(new InjectManifest({
+        //     swSrc,
+        //     swDest: 'sw.js',
+        // }));
     }
 
     return base
@@ -134,6 +134,7 @@ module.exports = {
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
         // assetModuleFilename: '../assets/img/[name][ext]'
     },
     resolve: {
